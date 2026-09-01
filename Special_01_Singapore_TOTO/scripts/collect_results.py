@@ -24,6 +24,7 @@ Singapore TOTO — One Million Simulations
 
 from __future__ import annotations
 
+import base64
 import csv
 import re
 import time
@@ -44,7 +45,11 @@ BASE_URL = (
     "en/product/sr/Pages/toto_results.aspx"
 )
 
-OUTPUT_FILE = Path(__file__).resolve().parent.parent / "data" / "toto_draws_6of49.csv"
+OUTPUT_FILE = (
+    Path(__file__).resolve().parent.parent
+    / "data"
+    / "toto_draws_6of49.csv"
+)
 
 REQUEST_DELAY_SECONDS = 1.0
 
@@ -80,17 +85,25 @@ class TotoDraw:
 
 def build_draw_url(draw_no: int) -> str:
     """
-    Build the Singapore Pools historical result URL.
+    Build the Singapore Pools historical TOTO result URL.
 
-    Important:
-    The exact historical-query parameter may need adjustment
-    if Singapore Pools changes its public result-page structure.
+    Singapore Pools uses a Base64-encoded query value
+    representing:
 
-    Keeping this logic in one function makes the collector
-    easy to update without changing the rest of the program.
+        DrawNumber=<draw number>
+
+    Example:
+        DrawNumber=4183
+        -> RHJhd051bWJlcj00MTgz
     """
 
-    return f"{BASE_URL}?sppl=RHJhd051bWJlcj0{draw_no}"
+    query_text = f"DrawNumber={draw_no}"
+
+    encoded_query = base64.b64encode(
+        query_text.encode("utf-8")
+    ).decode("utf-8")
+
+    return f"{BASE_URL}?sppl={encoded_query}"
 
 
 # ============================================================
@@ -137,13 +150,18 @@ def parse_draw_page(html: str) -> Optional[TotoDraw]:
     Extract draw number, date, six winning numbers,
     and the Additional Number from a TOTO result page.
 
-    The parser intentionally validates the extracted values.
+    The parser validates all extracted values.
     If the expected structure is not found, None is returned.
     """
 
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(
+        html,
+        "html.parser",
+    )
 
-    text = " ".join(soup.stripped_strings)
+    text = " ".join(
+        soup.stripped_strings
+    )
 
     # --------------------------------------------------------
     # Draw number
@@ -158,7 +176,9 @@ def parse_draw_page(html: str) -> Optional[TotoDraw]:
     if not draw_match:
         return None
 
-    draw_no = int(draw_match.group(1))
+    draw_no = int(
+        draw_match.group(1)
+    )
 
     # --------------------------------------------------------
     # Draw date
@@ -212,7 +232,9 @@ def parse_draw_page(html: str) -> Optional[TotoDraw]:
     if not additional_match:
         return None
 
-    additional = int(additional_match.group(1))
+    additional = int(
+        additional_match.group(1)
+    )
 
     # --------------------------------------------------------
     # Validation
@@ -221,7 +243,10 @@ def parse_draw_page(html: str) -> Optional[TotoDraw]:
     if len(set(winning_numbers)) != 6:
         return None
 
-    if not all(1 <= number <= 49 for number in winning_numbers):
+    if not all(
+        1 <= number <= 49
+        for number in winning_numbers
+    ):
         return None
 
     if not 1 <= additional <= 49:
@@ -267,9 +292,14 @@ def collect_draws(
 
     records: list[TotoDraw] = []
 
-    for draw_no in range(start_draw, end_draw + 1):
+    for draw_no in range(
+        start_draw,
+        end_draw + 1,
+    ):
 
-        print(f"[INFO] Fetching draw {draw_no}")
+        print(
+            f"[INFO] Fetching draw {draw_no}"
+        )
 
         html = fetch_page(draw_no)
 
@@ -279,19 +309,36 @@ def collect_draws(
         record = parse_draw_page(html)
 
         if record is None:
-            print(f"[WARNING] Could not parse draw {draw_no}")
-        else:
-            records.append(record)
-
             print(
-                f"[OK] {record.draw_no} | "
-                f"{record.draw_date} | "
-                f"{record.n1}, {record.n2}, {record.n3}, "
-                f"{record.n4}, {record.n5}, {record.n6} | "
-                f"Additional {record.additional}"
+                f"[WARNING] Could not parse draw {draw_no}"
             )
+            continue
 
-        time.sleep(REQUEST_DELAY_SECONDS)
+        # ----------------------------------------------------
+        # Critical validation:
+        # requested draw must equal returned draw
+        # ----------------------------------------------------
+
+        if record.draw_no != draw_no:
+            print(
+                f"[ERROR] Requested draw {draw_no}, "
+                f"but received draw {record.draw_no}"
+            )
+            continue
+
+        records.append(record)
+
+        print(
+            f"[OK] {record.draw_no} | "
+            f"{record.draw_date} | "
+            f"{record.n1}, {record.n2}, {record.n3}, "
+            f"{record.n4}, {record.n5}, {record.n6} | "
+            f"Additional {record.additional}"
+        )
+
+        time.sleep(
+            REQUEST_DELAY_SECONDS
+        )
 
     return records
 
@@ -300,7 +347,9 @@ def collect_draws(
 # CSV output
 # ============================================================
 
-def save_csv(records: list[TotoDraw]) -> None:
+def save_csv(
+    records: list[TotoDraw],
+) -> None:
     """
     Save collected draw records to CSV.
     """
@@ -336,11 +385,17 @@ def save_csv(records: list[TotoDraw]) -> None:
         writer.writeheader()
 
         for record in records:
-            writer.writerow(asdict(record))
+            writer.writerow(
+                asdict(record)
+            )
 
     print()
-    print(f"[DONE] Saved {len(records)} draws")
-    print(f"[FILE] {OUTPUT_FILE}")
+    print(
+        f"[DONE] Saved {len(records)} draws"
+    )
+    print(
+        f"[FILE] {OUTPUT_FILE}"
+    )
 
 
 # ============================================================
@@ -349,13 +404,13 @@ def save_csv(records: list[TotoDraw]) -> None:
 
 def main() -> None:
     """
-    Entry point.
+    Initial validation run.
 
-    We begin with a very small test range before attempting
-    the full historical dataset.
+    Only two historical draws are requested.
 
-    Do not change this to the full history until the collector
-    has been verified against official Singapore Pools results.
+    Full historical collection should not begin until
+    these results have been verified against the official
+    Singapore Pools records.
     """
 
     TEST_START_DRAW = 4210
