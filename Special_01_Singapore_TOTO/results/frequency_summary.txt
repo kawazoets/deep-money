@@ -1,0 +1,108 @@
+Singapore TOTO 6/49 Historical Frequency Analysis
+============================================================
+
+Draw range: 2995 - 4213
+Number of draws: 1219
+Expected main frequency per number: 149.265
+
+MOST FREQUENT MAIN NUMBERS
+------------------------------------------------------------
+15: 176
+40: 172
+46: 166
+22: 165
+28: 163
+49: 162
+ 8: 159
+32: 159
+ 1: 158
+12: 158
+
+LEAST FREQUENT MAIN NUMBERS
+------------------------------------------------------------
+45: 119
+42: 128
+33: 132
+29: 133
+41: 136
+25: 137
+18: 139
+47: 139
+14: 140
+13: 142
+
+MOST FREQUENT ADDITIONAL NUMBERS
+------------------------------------------------------------
+20: 37
+ 6: 33
+48: 33
+21: 32
+31: 32
+33: 32
+29: 30
+34: 30
+18: 29
+44: 29
+
+ODD / EVEN DISTRIBUTION
+------------------------------------------------------------
+0 odd / 6 even: 10 (0.82%)
+1 odd / 5 even: 96 (7.88%)
+2 odd / 4 even: 282 (23.13%)
+3 odd / 3 even: 438 (35.93%)
+4 odd / 2 even: 290 (23.79%)
+5 odd / 1 even: 93 (7.63%)
+6 odd / 0 even: 10 (0.82%)
+
+LOW / HIGH DISTRIBUTION
+------------------------------------------------------------
+0 low / 6 high: 14 (1.15%)
+1 low / 5 high: 104 (8.53%)
+2 low / 4 high: 317 (26.00%)
+3 low / 3 high: 383 (31.42%)
+4 low / 2 high: 289 (23.71%)
+5 low / 1 high: 106 (8.70%)
+6 low / 0 high: 6 (0.49%)
+
+SUM OF SIX MAIN NUMBERS
+------------------------------------------------------------
+Mean   : 149.382
+Median : 150.000
+Stdev  : 32.156
+Minimum: 59
+Maximum: 251
+
+CONSECUTIVE NUMBERS
+------------------------------------------------------------
+Draws containing at least one consecutive pair: 570
+Percentage: 46.76%
+
+MOST FREQUENT MAIN-NUMBER PAIRS
+------------------------------------------------------------
+ 2 + 15: 30
+ 5 + 49: 30
+ 8 + 17: 29
+25 + 28: 28
+15 + 40: 28
+22 + 36: 27
+27 + 44: 26
+21 + 27: 26
+21 + 30: 26
+ 4 + 15: 26
+14 + 28: 26
+ 1 + 41: 26
+ 8 + 11: 25
+ 5 + 30: 25
+21 + 35: 25
+ 2 + 19: 24
+ 9 + 15: 24
+10 + 15: 24
+ 2 + 36: 24
+18 + 49: 24
+
+CHI-SQUARE DESCRIPTIVE STATISTIC
+------------------------------------------------------------
+38.358217
+
+Interpretation note:
+Historical deviations from equal frequency do not by themselves provide evidence that future fair lottery draws are predictable.
