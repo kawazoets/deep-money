@@ -413,8 +413,8 @@ def main() -> None:
     Singapore Pools records.
     """
 
-    TEST_START_DRAW = 3015
-    TEST_END_DRAW = 3015
+    TEST_START_DRAW = 2995
+    TEST_END_DRAW = 2995
 
     records = collect_draws(
         TEST_START_DRAW,
