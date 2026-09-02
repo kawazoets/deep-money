@@ -1,0 +1,105 @@
+Singapore TOTO 6/49
+Combination Structure Significance Test
+========================================================================
+
+Historical sample size : 1219
+Monte Carlo experiments: 10,000
+Nominal alpha          : 0.05
+Bonferroni alpha       : 0.006250
+
+Sum mean
+------------------------------------------------------------------------
+Observed       : 149.382281
+Random mean    : 150.003249
+Difference     : -0.620968
+Z-score        : -0.6632
+Empirical p    : 0.500150
+Random 95%     : 148.155865 - 151.835931
+p < 0.05       : False
+Bonferroni sig : False
+
+Mean gap
+------------------------------------------------------------------------
+Observed       : 7.210829
+Random mean    : 7.142925
+Difference     : +0.067904
+Z-score        : +1.6122
+Empirical p    : 0.108089
+Random 95%     : 7.060213 - 7.224938
+p < 0.05       : False
+Bonferroni sig : False
+
+Minimum gap
+------------------------------------------------------------------------
+Observed       : 1.941756
+Random mean    : 1.880061
+Difference     : +0.061694
+Z-score        : +1.9077
+Empirical p    : 0.056094
+Random 95%     : 1.817063 - 1.944217
+p < 0.05       : False
+Bonferroni sig : False
+
+Maximum gap
+------------------------------------------------------------------------
+Observed       : 15.831829
+Random mean    : 15.643128
+Difference     : +0.188701
+Z-score        : +1.2566
+Empirical p    : 0.212279
+Random 95%     : 15.347006 - 15.937654
+p < 0.05       : False
+Bonferroni sig : False
+
+Range
+------------------------------------------------------------------------
+Observed       : 36.054143
+Random mean    : 35.714625
+Difference     : +0.339518
+Z-score        : +1.6122
+Empirical p    : 0.108089
+Random 95%     : 35.301066 - 36.124692
+p < 0.05       : False
+Bonferroni sig : False
+
+Minimum number
+------------------------------------------------------------------------
+Observed       : 6.957342
+Random mean    : 7.143230
+Difference     : -0.185888
+Z-score        : -1.1337
+Empirical p    : 0.257574
+Random 95%     : 6.822806 - 7.470878
+p < 0.05       : False
+Bonferroni sig : False
+
+Maximum number
+------------------------------------------------------------------------
+Observed       : 43.011485
+Random mean    : 42.857855
+Difference     : +0.153630
+Z-score        : +0.9385
+Empirical p    : 0.348965
+Random 95%     : 42.529122 - 43.174733
+p < 0.05       : False
+Bonferroni sig : False
+
+Consecutive draw rate
+------------------------------------------------------------------------
+Observed       : 0.467596
+Random mean    : 0.495104
+Difference     : -0.027507
+Z-score        : -1.9176
+Empirical p    : 0.053995
+Random 95%     : 0.466776 - 0.522559
+p < 0.05       : False
+Bonferroni sig : False
+
+========================================================================
+FINAL INTERPRETATION
+========================================================================
+Nominal significant metrics : 0
+After Bonferroni correction : 0
+
+No tested structural feature remains statistically significant after multiple-testing correction.
+The observed historical structure is therefore compatible with variation expected from random 6/49 sampling.
