@@ -1,0 +1,67 @@
+Singapore TOTO 6/49 Monte Carlo Experiment
+============================================================
+
+Simulations : 1,000,000
+Random seed : 20260901
+
+STRATEGIES
+------------------------------------------------------------
+A: Pure random ticket
+B: Historical-frequency weighted ticket
+
+Winning draw generation:
+Uniform random 6-from-49
+
+AVERAGE MATCHES PER TICKET
+------------------------------------------------------------
+Theoretical expected : 0.734694
+Random strategy      : 0.735647
+Weighted strategy    : 0.734890
+
+HEAD-TO-HEAD RESULTS
+------------------------------------------------------------
+Random better   : 311,601
+Weighted better : 311,155
+Ties            : 377,244
+
+MATCH DISTRIBUTION
+------------------------------------------------------------
+0 matches
+  Random     : 435,505 (0.43550500)
+  Weighted   : 435,965 (0.43596500)
+  Theoretical: 0.43596498
+
+1 matches
+  Random     : 413,228 (0.41322800)
+  Weighted   : 412,879 (0.41287900)
+  Theoretical: 0.41301945
+
+2 matches
+  Random     : 132,397 (0.13239700)
+  Weighted   : 132,439 (0.13243900)
+  Theoretical: 0.13237803
+
+3 matches
+  Random     : 17,872 (0.01787200)
+  Weighted   : 17,758 (0.01775800)
+  Theoretical: 0.01765040
+
+4 matches
+  Random     : 982 (0.00098200)
+  Weighted   : 936 (0.00093600)
+  Theoretical: 0.00096862
+
+5 matches
+  Random     : 15 (0.00001500)
+  Weighted   : 23 (0.00002300)
+  Theoretical: 0.00001845
+
+6 matches
+  Random     : 1 (0.00000100)
+  Weighted   : 0 (0.00000000)
+  Theoretical: 0.00000007
+
+INTERPRETATION
+------------------------------------------------------------
+If the winning draw is fair and uniform, historical-frequency weighting should not provide a persistent advantage over a pure random ticket.
+Any small difference observed in a finite simulation may be caused by random sampling variation.
