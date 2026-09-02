@@ -1,0 +1,58 @@
+Singapore TOTO 6/49 Rolling Frequency Walk-Forward Backtest
+============================================================
+
+Backtest draws : 1119
+Random average : 0.731010
+
+WINDOW 20
+------------------------------------------------------------
+Average matches : 0.739053
+Better than random : 368
+Worse than random  : 363
+Ties               : 388
+
+Match distribution
+  0: 485
+  1: 464
+  2: 147
+  3: 23
+  4: 0
+  5: 0
+  6: 0
+
+WINDOW 50
+------------------------------------------------------------
+Average matches : 0.721180
+Better than random : 338
+Worse than random  : 352
+Ties               : 429
+
+Match distribution
+  0: 495
+  1: 466
+  2: 137
+  3: 17
+  4: 4
+  5: 0
+  6: 0
+
+WINDOW 100
+------------------------------------------------------------
+Average matches : 0.732797
+Better than random : 350
+Worse than random  : 346
+Ties               : 423
+
+Match distribution
+  0: 484
+  1: 471
+  2: 144
+  3: 19
+  4: 1
+  5: 0
+  6: 0
+
+INTERPRETATION NOTE
+------------------------------------------------------------
+Each prediction uses only recent draws that occurred before the target draw.
+A rolling-frequency strategy would need to outperform the random baseline consistently across many future draws to indicate useful predictive information.
