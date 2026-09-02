@@ -1,0 +1,53 @@
+Singapore TOTO 6/49 Pair Strategy Walk-Forward Backtest
+============================================================
+
+Total historical draws : 1219
+Initial training draws : 200
+Backtest draws         : 1019
+
+AVERAGE MATCHES
+------------------------------------------------------------
+Pair strategy   : 0.713445
+Random baseline : 0.723258
+
+HEAD-TO-HEAD
+------------------------------------------------------------
+Pair better   : 313
+Random better : 313
+Ties          : 393
+
+MATCH DISTRIBUTION
+------------------------------------------------------------
+0 matches
+  Pair   : 453
+  Random : 459
+
+1 matches
+  Pair   : 427
+  Random : 404
+
+2 matches
+  Pair   : 119
+  Random : 135
+
+3 matches
+  Pair   : 18
+  Random : 21
+
+4 matches
+  Pair   : 2
+  Random : 0
+
+5 matches
+  Pair   : 0
+  Random : 0
+
+6 matches
+  Pair   : 0
+  Random : 0
+
+INTERPRETATION NOTE
+------------------------------------------------------------
+This is an out-of-sample walk-forward test.
+Each prediction uses only draws that occurred before the target draw.
+A persistent advantage would require the pair strategy to outperform the random baseline across many future draws, not merely a small finite-sample difference.
