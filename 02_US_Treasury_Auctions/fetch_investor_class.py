@@ -23,10 +23,10 @@ def main():
     html=requests.get(PAGE,timeout=60).text
     soup=BeautifulSoup(html,"html.parser")
     links=[a.get("href","") for a in soup.find_all("a")]
-    candidates=[x for x in links if "IC_Coupons" in x and x.lower().endswith(".xls")]
+    candidates=[x for x in links if "ic_coupons" in x.lower() and x.lower().endswith(".xls")]
     if not candidates:
         raise RuntimeError("Could not find current Treasury coupon investor-class XLS link")
-    href=candidates[0]
+    # Treasury currently publishes links such as August_7_2026_IC_Coupons.xls.\n    # Match case-insensitively because the site uses IC_Coupons, not a stable prefix.\n    href=candidates[0]
     url=href if href.startswith("http") else BASE+href
     print("Investor-class source:",url)
     data=requests.get(url,timeout=60)
