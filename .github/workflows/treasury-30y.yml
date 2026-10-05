@@ -1,0 +1,38 @@
+name: Update 30Y Treasury auction analysis
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "02_US_Treasury_Auctions/fetch_30y_auctions.py"
+      - "02_US_Treasury_Auctions/analyze_30y_auctions.py"
+      - ".github/workflows/treasury-30y.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r 02_US_Treasury_Auctions/requirements.txt
+      - name: Fetch official Treasury data
+        run: python 02_US_Treasury_Auctions/fetch_30y_auctions.py
+      - name: Run exploratory analysis
+        run: python 02_US_Treasury_Auctions/analyze_30y_auctions.py
+      - name: Commit generated data and outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 02_US_Treasury_Auctions/data 02_US_Treasury_Auctions/output
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+          else
+            git commit -m "Update 30Y Treasury auction data and analysis"
+            git push
+          fi
