@@ -49,14 +49,47 @@ def main():
     if "cusip" not in df.columns:
         raise RuntimeError("CUSIP column not found after normalization")
 
+    # Reopenings reuse the original security's CUSIP, so CUSIP alone is not
+    # an auction-event key. Treasury's Investor Class table is ordered by
+    # issue date and includes issue_date; match on CUSIP + issue_date.
+    if "issue_date" not in df.columns:
+        raise RuntimeError("Issue-date column not found after normalization")
+
     df["cusip"] = df["cusip"].astype(str).str.strip()
-    keep = set(auctions["cusip"].astype(str).str.strip())
-    subset = df[df["cusip"].isin(keep)].copy()
+    auctions["cusip"] = auctions["cusip"].astype(str).str.strip()
+    df["issue_date"] = pd.to_datetime(df["issue_date"], errors="coerce").dt.normalize()
+    auctions["issue_date"] = pd.to_datetime(
+        auctions["issue_date"], errors="coerce"
+    ).dt.normalize()
+
+    keys = auctions[["cusip", "issue_date"]].drop_duplicates()
+    subset = df.merge(keys, on=["cusip", "issue_date"], how="inner", validate="one_to_one")
+    subset = subset.sort_values("issue_date").copy()
     subset.to_csv(outdir / "investor_class_30y_nominal.csv", index=False)
 
     if subset.empty:
-        raise RuntimeError("No nominal 30Y CUSIPs matched investor-class workbook")
-    print(f"Matched {len(subset)} investor-class rows to nominal 30Y CUSIPs")
+        raise RuntimeError("No nominal 30Y auction events matched investor-class workbook")
+
+    expected = auctions[
+        auctions["issue_date"].between(df["issue_date"].min(), df["issue_date"].max())
+    ][["cusip", "issue_date"]].drop_duplicates()
+    if len(subset) != len(expected):
+        missing = expected.merge(
+            subset[["cusip", "issue_date"]],
+            on=["cusip", "issue_date"],
+            how="left",
+            indicator=True,
+        )
+        missing = missing[missing["_merge"] == "left_only"]
+        raise RuntimeError(
+            f"Investor-class event match incomplete: matched {len(subset)} of "
+            f"{len(expected)} expected rows. Missing:\n{missing.to_string(index=False)}"
+        )
+
+    print(
+        f"Matched {len(subset)} investor-class rows to nominal 30Y auction events "
+        f"by CUSIP + issue_date"
+    )
 
 if __name__ == "__main__":
     main()
