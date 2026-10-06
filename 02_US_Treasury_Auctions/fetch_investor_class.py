@@ -55,7 +55,13 @@ def main():
     if "issue_date" not in df.columns:
         raise RuntimeError("Issue-date column not found after normalization")
 
+    # The workbook contains title/footer/blank rows; exclude them before
+    # enforcing uniqueness on auction-event keys. Converting NaN to string
+    # first would turn blank CUSIPs into the literal "nan".
+    df = df[df["cusip"].notna() & df["issue_date"].notna()].copy()
     df["cusip"] = df["cusip"].astype(str).str.strip()
+    df = df[df["cusip"].ne("") & df["cusip"].str.lower().ne("nan")].copy()
+    auctions = auctions[auctions["cusip"].notna() & auctions["issue_date"].notna()].copy()
     auctions["cusip"] = auctions["cusip"].astype(str).str.strip()
     df["issue_date"] = pd.to_datetime(df["issue_date"], errors="coerce").dt.normalize()
     auctions["issue_date"] = pd.to_datetime(
