@@ -7,6 +7,8 @@ on:
       - "02_US_Treasury_Auctions/fetch_30y_auctions.py"
       - "02_US_Treasury_Auctions/analyze_30y_auctions.py"
       - "02_US_Treasury_Auctions/fetch_investor_class.py"
+      - "02_US_Treasury_Auctions/fetch_cftc_long_bond.py"
+      - "02_US_Treasury_Auctions/analyze_cftc_vs_auction.py"
       - ".github/workflows/treasury-30y.yml"
 
 permissions:
@@ -26,8 +28,12 @@ jobs:
         run: python 02_US_Treasury_Auctions/fetch_30y_auctions.py
       - name: Fetch investor class allotments
         run: python 02_US_Treasury_Auctions/fetch_investor_class.py
+      - name: Fetch CFTC long Treasury positioning
+        run: python 02_US_Treasury_Auctions/fetch_cftc_long_bond.py
       - name: Run exploratory analysis
         run: python 02_US_Treasury_Auctions/analyze_30y_auctions.py
+      - name: Compare CFTC positioning with auction investor class
+        run: python 02_US_Treasury_Auctions/analyze_cftc_vs_auction.py
       - name: Commit generated data and outputs
         run: |
           git config user.name "github-actions[bot]"
