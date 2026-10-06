@@ -39,7 +39,7 @@ raw.columns = [str(c).strip() for c in raw.columns]
 
 required = [
     "Market_and_Exchange_Names",
-    "Report_Date_as_MM_DD_YYYY",
+    "Report_Date_as_YYYY-MM-DD",
     "CFTC_Contract_Market_Code",
     "Open_Interest_All",
     "Asset_Mgr_Positions_Long_All",
@@ -58,7 +58,7 @@ raw["contract_code"] = codes
 
 df = raw[raw["contract_code"].isin(MARKETS)].copy()
 df["market"] = df["contract_code"].map(MARKETS)
-df["report_date"] = pd.to_datetime(df["Report_Date_as_MM_DD_YYYY"], errors="coerce")
+df["report_date"] = pd.to_datetime(df["Report_Date_as_YYYY-MM-DD"], errors="coerce")
 
 numcols = [
     "Open_Interest_All",
