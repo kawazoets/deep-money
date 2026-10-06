@@ -43,5 +43,9 @@ jobs:
             echo "No generated changes."
           else
             git commit -m "Update 30Y Treasury auction data and analysis"
-            git push
+            # A workflow run may overlap a newer source-code commit on main.
+            # Rebase the generated-data commit onto the current remote head
+            # before pushing, rather than failing with a non-fast-forward.
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
