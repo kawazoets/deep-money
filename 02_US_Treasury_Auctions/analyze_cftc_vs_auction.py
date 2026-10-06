@@ -69,3 +69,34 @@ print("\nDescriptive annual correlations (NOT causal tests):")
 print(pd.DataFrame(corr_rows).to_string(index=False))
 print("\nCaution: Auction Investor Class and CFTC TFF are different classification systems.")
 print("CFTC UST BOND and ULTRA UST BOND are kept separate; their contracts are not simply added.")
+
+
+# First-difference test: remove common level trends and ask whether year-to-year
+# changes in auction Investment Funds share move with year-to-year CFTC changes.
+diff_cols = [
+    "investment_funds_pct_ex_soma",
+    *[c for c in merged.columns if c.startswith(
+        ("asset_mgr_net_pct_oi_avg_", "leveraged_funds_net_pct_oi_avg_")
+    )],
+]
+diff = merged[["year", *diff_cols]].sort_values("year").copy()
+for c in diff_cols:
+    diff[f"d_{c}"] = diff[c].diff()
+diff.to_csv(OUT / "auction_vs_cftc_first_differences.csv", index=False)
+
+diff_rows = []
+target = "d_investment_funds_pct_ex_soma"
+for c in diff.columns:
+    if c.startswith(("d_asset_mgr_net_pct_oi_avg_", "d_leveraged_funds_net_pct_oi_avg_")):
+        valid = diff[[target, c]].dropna()
+        diff_rows.append({
+            "cftc_series_change": c,
+            "n_changes": len(valid),
+            "corr_with_change_in_investment_funds_pct_ex_soma": valid[target].corr(valid[c]),
+        })
+pd.DataFrame(diff_rows).to_csv(
+    OUT / "auction_vs_cftc_first_difference_correlations.csv", index=False
+)
+
+print("\nFirst-difference correlations (trend-reduced descriptive test):")
+print(pd.DataFrame(diff_rows).to_string(index=False))
