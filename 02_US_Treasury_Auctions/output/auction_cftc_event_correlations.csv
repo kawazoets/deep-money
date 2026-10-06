@@ -1,0 +1,5 @@
+market,cftc_weekly_change,n_auctions,corr_with_auction_investment_funds_share
+ULTRA UST BOND,d_asset_mgr_net_pct_oi,127,0.09085439344150543
+ULTRA UST BOND,d_leveraged_funds_net_pct_oi,127,-0.15753287665057886
+UST BOND,d_asset_mgr_net_pct_oi,127,0.009922625794613385
+UST BOND,d_leveraged_funds_net_pct_oi,127,0.0963333569015907
