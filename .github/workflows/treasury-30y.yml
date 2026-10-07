@@ -9,7 +9,9 @@ on:
       - "02_US_Treasury_Auctions/fetch_investor_class.py"
       - "02_US_Treasury_Auctions/fetch_cftc_long_bond.py"
       - "02_US_Treasury_Auctions/analyze_cftc_vs_auction.py"
-      - "02_US_Treasury_Auctions/analyze_auction_cftc_event.py"\n      - "02_US_Treasury_Auctions/fetch_fed_fund_holdings.py"\n      - "02_US_Treasury_Auctions/analyze_fund_composition.py"
+      - "02_US_Treasury_Auctions/analyze_auction_cftc_event.py"
+      - "02_US_Treasury_Auctions/fetch_fed_fund_holdings.py"
+      - "02_US_Treasury_Auctions/analyze_fund_composition.py"
       - ".github/workflows/treasury-30y.yml"
 
 permissions:
@@ -37,7 +39,11 @@ jobs:
         run: python 02_US_Treasury_Auctions/analyze_cftc_vs_auction.py
       - name: Run auction-window CFTC robustness test
         run: python 02_US_Treasury_Auctions/analyze_auction_cftc_event.py
-      - name: Fetch Fed fund Treasury holdings\n        run: python 02_US_Treasury_Auctions/fetch_fed_fund_holdings.py\n      - name: Compare fund composition evidence\n        run: python 02_US_Treasury_Auctions/analyze_fund_composition.py\n      - name: Commit generated data and outputs
+      - name: Fetch Fed fund Treasury holdings
+        run: python 02_US_Treasury_Auctions/fetch_fed_fund_holdings.py
+      - name: Compare fund composition evidence
+        run: python 02_US_Treasury_Auctions/analyze_fund_composition.py
+      - name: Commit generated data and outputs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
