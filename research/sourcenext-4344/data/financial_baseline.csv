@@ -1,0 +1,21 @@
+period,metric,value,unit,source_document,source_url,source_page,notes
+2026-06-30,cash_and_deposits,4571.177,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,3,Consolidated
+2026-06-30,cash_equivalents,4408.787,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,8,Consolidated
+2026-06-30,short_term_borrowings,2600,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,4,Consolidated
+2026-06-30,current_long_term_debt,291.024,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,4,Consolidated
+2026-06-30,long_term_borrowings,1243.108,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,4,Consolidated
+2026-06-30,bonds_payable,250,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,4,Consolidated
+2026-06-30,current_liabilities,5014.911,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,4,Consolidated
+2026-06-30,current_assets,8972.452,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,3,Consolidated
+2026-06-30,parent_equity,4723.451,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,4,Shareholders equity plus AOCI
+2026-06-30,net_assets,5835.738,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,4,Includes noncontrolling interests and share acquisition rights
+2026H1,operating_cash_flow,3.691,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,7,January through June
+2026H1,investing_cash_flow,-202.676,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,7,Includes business acquisitions and disposals
+2026H1,financing_cash_flow,-199.120,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,8,January through June
+2026H1,software_capex,-434.959,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,7,Capitalized software purchase
+2026H1,property_capex,-50.261,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,7,Property plant equipment
+2026H1,operating_loss,-805.935,JPY_million,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,5,Consolidated
+2026H1,pocketalk_operating_loss,-586,JPY_million,2026H1_presentation,https://www.sourcenext.co.jp/~/media/Files/cojp/ir/library/2026/26122q_en,8,Subsidiary consolidated approximate million JPY
+2026H1,parent_standalone_operating_loss,-220,JPY_million,2026H1_presentation,https://www.sourcenext.co.jp/~/media/Files/cojp/ir/library/2026/26122q_en,9,Standalone not additive to consolidated without adjustments
+2026-06-30,issued_shares,139115100,shares,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,2,Includes treasury shares
+2026-06-30,treasury_shares,800124,shares,2026H1_results,https://www.sourcenext.co.jp/~/media/Files/cojp/ir-english/library/2026/sc_20260807.pdf,2,Subtract from issued shares
