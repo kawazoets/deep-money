@@ -1,0 +1,11 @@
+ticker,company,reference_price_sgd,price_date,source,notes
+A31,Addvalue Technologies,0.105,2026-10-26,https://sginvestors.io/market/sgx-top-volume,High volume; verify spread and financials
+Y92,Thai Beverage,0.440,2026-10-26,https://sginvestors.io/market/sgx-top-volume,High volume; verify issuer and reporting currency
+594,CapAllianz Holdings,0.001,2026-10-26,https://sginvestors.io/market/sgx-top-volume,Very high tick-size risk; not recommended without order book
+569,Vicplas International,0.065,2026-10-27,https://stockanalysis.com/list/singapore-exchange/,Price is website snapshot not verified closing
+5NV,Chasen Holdings,0.082,2026-10-27,https://stockanalysis.com/list/singapore-exchange/,Price is website snapshot not verified closing
+5PO,Hiap Tong Corporation,0.095,2026-10-27,https://stockanalysis.com/list/singapore-exchange/,Price is website snapshot not verified closing
+1R6,Avi-Tech Holdings,0.170,2026-10-27,https://stockanalysis.com/list/singapore-exchange/,Price is website snapshot not verified closing
+BQN,BH Global Corporation,0.085,2026-10-27,https://stockanalysis.com/list/singapore-exchange/,Price is website snapshot not verified closing
+BJZ,Koda Ltd,0.280,2026-10-27,https://stockanalysis.com/list/singapore-exchange/,Price is website snapshot not verified closing
+BDA,PNE Industries,0.370,2026-10-27,https://stockanalysis.com/list/singapore-exchange/,Price is website snapshot not verified closing
