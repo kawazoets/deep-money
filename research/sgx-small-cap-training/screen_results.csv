@@ -1,0 +1,11 @@
+ticker,company,reference_price_sgd,price_date,lot_cost_sgd,estimated_buy_fees_sgd,estimated_roundtrip_fees_sgd,break_even_gain_pct_approx,within_budget_including_buy_fees
+Y92,Thai Beverage,0.440,2026-10-26,44.0,1.098,2.197,4.99,True
+BDA,PNE Industries,0.370,2026-10-27,37.0,1.095,2.190,5.92,True
+BJZ,Koda Ltd,0.280,2026-10-27,28.0,1.091,2.183,7.80,True
+1R6,Avi-Tech Holdings,0.170,2026-10-27,17.0,1.086,2.173,12.78,True
+A31,Addvalue Technologies,0.105,2026-10-26,10.5,1.084,2.167,20.64,True
+5PO,Hiap Tong Corporation,0.095,2026-10-27,9.5,1.083,2.166,22.81,True
+BQN,BH Global Corporation,0.085,2026-10-27,8.5,1.083,2.166,25.48,True
+5NV,Chasen Holdings,0.082,2026-10-27,8.2,1.083,2.165,26.41,True
+569,Vicplas International,0.065,2026-10-27,6.5,1.082,2.164,33.29,True
+594,CapAllianz Holdings,0.001,2026-10-26,0.1,1.079,2.158,2158.29,True
